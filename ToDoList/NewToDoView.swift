@@ -10,7 +10,7 @@ import SwiftUI
 struct NewToDoView: View {
     var body: some View {
         VStack {
-            Text("Task title:")
+            Text("Task Title:")
                 .foregroundColor(Color.white)
                 .padding(.horizontal, 30.0)
                 .padding(.vertical, 5.0)

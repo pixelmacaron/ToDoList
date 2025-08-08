@@ -6,34 +6,46 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     
     @State private var showNewTask = false
+    @Query var toDos: [ToDoItem]
     
     var body: some View {
         VStack {
             HStack {
                 Text("To-Do List")
                     .font(.system(size: 40))
-                         .fontWeight(.black)
+                    .fontWeight(.black)
+                    .foregroundColor(Color.white)
                 Spacer()
                 Button {
                     withAnimation {
                         showNewTask = true
                     }
                 } label: {
-                    Text("+")
+                    Text("+ ")
+                        .padding(.horizontal,10)
+                        .padding(.vertical,5)
                         .font(.title)
                         .fontWeight(.bold)
+                        .foregroundColor(Color.blue)
+                        .background(Color.white)
+                        .cornerRadius(30)
                 }
             }
-            .padding(.vertical, 20)
+            .padding(.vertical, 15)
             .padding(.horizontal, 20)
             .padding()
-//            .background(Color(hue: 0.577, saturation: 0.249, brightness: 1.0))
+            .background(Color.blue)
             Spacer()
             
+            List{
+                ForEach (toDos) {toDoItem in Text(toDoItem.title)
+                }
+            }
             if showNewTask {
                 NewToDoView()
             }
