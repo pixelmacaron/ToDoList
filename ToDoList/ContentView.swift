@@ -23,7 +23,9 @@ struct ContentView: View {
                         .fontWeight(.bold)
                 }
             }
+            .padding(.vertical, 20)
             .padding()
+            .background(Color(hue: 0.577, saturation: 0.249, brightness: 1.0))
             Spacer()
         }
     }
